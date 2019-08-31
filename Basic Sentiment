@@ -1,0 +1,43 @@
+# This piece of code classifies if a sentence is either Positive, Negative or Neutral
+def Sentiment_Analysis():
+    # list of Positve, Negative and Neutral words
+    Negative_words = ['bad', 'angry', 'hate']
+    positive_words = ['love', 'like', 'good']
+    Neutral_words = ['maybe', 'others']
+    
+    # Sentence
+#    Sentencee = "I love Obi because he is a good boy, and I also love ada becuase she is an obedient girl"
+    Sentencee = "I hate Obi because he is a bad boy, and I also hate ada becuase she is an disobedient girl"
+
+    Sentence = Sentencee.split()
+    
+    positive = []
+    negative = []
+    neutral = []
+    
+    # check if Negative
+    for neg in Sentence:
+        for i in Negative_words:
+            if i == neg in Sentence:
+                negative.append(i)
+    # Check if Positive
+    for pos in Sentence:
+        for i in positive_words:
+            if i == pos in Sentence:
+                positive.append(i)
+    # Check if Neutral
+    for neu in Sentence:
+        for i in Neutral_words:
+            if i == neu in Sentence:
+                neutral.append(i)
+    
+    # compare the Length 
+    if len(positive) > len(negative) and len(positive) > len(neutral):
+        Analysis = "This is a Positive Sentence"
+    elif len(negative) > len(positive) and len(negative) > len(neutral):
+        Analysis = "This is a Negative Sentence"
+    else:
+        Analysis = "This is a Neutral Sentence"
+    return Analysis
+
+print(Sentiment_Analysis())
